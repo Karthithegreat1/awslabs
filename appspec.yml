@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: <source_directory>
+    destination: <destination_directory>
+hooks:
+  BeforeInstall:
+    - location: <script_location>
+      timeout: <timeout_in_seconds>
+      runas: <run_as_user>
+  # Additional hooks as needed
