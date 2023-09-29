@@ -1,11 +1,14 @@
 version: 0.0
 os: linux
 files:
-  - source: <source_directory>
-    destination: <destination_directory>
+  - source: /
+    destination: /var/www/html
 hooks:
   BeforeInstall:
-    - location: <script_location>
-      timeout: <timeout_in_seconds>
-      runas: <run_as_user>
-  # Additional hooks as needed
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: root
